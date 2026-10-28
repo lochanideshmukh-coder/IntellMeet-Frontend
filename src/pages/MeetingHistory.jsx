@@ -1,0 +1,5 @@
+import { History, CalendarDays } from "lucide-react";
+export default function MeetingHistory({ meetings }) {
+  const history = meetings.filter(m => m.status === "Completed");
+  return <section className="table-panel"><div className="table-panel-head"><div><h2>Previous meetings</h2><p>A record of completed conversations in the demo workspace.</p></div><span className="count-pill">{history.length} records</span></div>{history.length ? <div className="responsive-table"><table><thead><tr><th>Meeting</th><th>Meeting ID</th><th>Date</th><th>Time</th><th>Status</th></tr></thead><tbody>{history.map(m=><tr key={m.id}><td><div className="table-title"><span className="table-icon"><CalendarDays size={16}/></span><b>{m.title}</b></div></td><td>{m.id}</td><td>{m.date}</td><td>{m.time}</td><td><span className="status status-completed">{m.status}</span></td></tr>)}</tbody></table></div> : <div className="empty-state"><History/><h3>No meeting history yet</h3><p>Completed meetings will appear here when data is available.</p></div>}</section>;
+}

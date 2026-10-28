@@ -1,0 +1,2 @@
+import { Link } from "react-router-dom";
+export default function NotFound() { return <main className="not-found"><span className="eyebrow">404 · PAGE NOT FOUND</span><h1>This page isn't in the meeting.</h1><p>The link may be incorrect or the page may have moved.</p><Link className="primary-button" to="/">Return to IntellMeet</Link></main>; }
